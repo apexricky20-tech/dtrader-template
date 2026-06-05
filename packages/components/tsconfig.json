@@ -6,7 +6,8 @@
         "paths": {
             "@deriv/*": ["../*/src"]
         },
-        "typeRoots": ["./types", "@types"]
+        "typeRoots": ["./types", "@types"],
+        "ignoreDeprecations": "6.0"
     },
     "include": [
         "src",

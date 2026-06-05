@@ -26,7 +26,7 @@ type TGetSelectedRoute = {
     pathname: string;
 };
 
-// @ts-expect-error as this is a utility function with dynamic types
+// @ts-ignore as this is a utility function with dynamic types
 export const matchRoute = <T,>(route: T, pathname: string) => new RegExp(`^${route?.path}(/.*)?$`).test(pathname);
 
 export const getSelectedRoute = ({ routes, pathname }: TGetSelectedRoute) => {

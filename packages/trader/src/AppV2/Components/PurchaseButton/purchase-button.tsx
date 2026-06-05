@@ -207,7 +207,7 @@ const PurchaseButton = observer(({ onPurchaseSuccess }: TPurchaseButtonProps = {
                     })}
                 >
                     {contract_types.map((trade_type, index) => {
-                        const info = proposal_info?.[trade_type] || {};
+                        const info = proposal_info?.[trade_type] || ({} as any);
                         const is_single_button = contract_types.length === 1;
                         const is_loading = loading_button_index === index;
                         const is_disabled =
@@ -223,10 +223,8 @@ const PurchaseButton = observer(({ onPurchaseSuccess }: TPurchaseButtonProps = {
                                     size='lg'
                                     label={
                                         is_single_button
-                                            ? // [AI]
-                                              localize('Buy')
-                                            : // [/AI]
-                                              getContractTypeDisplay(trade_type, {
+                                            ? localize('Buy')
+                                            : getContractTypeDisplay(trade_type, {
                                                   isHighLow: is_high_low,
                                                   showButtonName: true,
                                               })

@@ -164,7 +164,7 @@ describe('ProfitTableStore', () => {
         });
         it('should return false if date_from and date_to are both falsy', () => {
             expect(mocked_profit_table_store.date_from).toBeNull();
-            // @ts-expect-error TODO: remove the comment after profit-store is migrated to TS
+            // @ts-ignore TODO: remove the comment after profit-store is migrated to TS
             mocked_profit_table_store.date_to = null;
 
             expect(mocked_profit_table_store.has_selected_date).toBe(false);
@@ -352,7 +352,7 @@ describe('ProfitTableStore', () => {
     });
     describe('clearDateFilter', () => {
         it('should clear data_from and reset date_to to today unix timestamp', () => {
-            // @ts-expect-error TODO: remove the comment after profit-store is migrated to TS
+            // @ts-ignore TODO: remove the comment after profit-store is migrated to TS
             mocked_profit_table_store.date_from = custom_timestamp;
             mocked_profit_table_store.date_to = custom_timestamp;
 

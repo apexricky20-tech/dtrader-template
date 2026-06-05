@@ -132,7 +132,7 @@ const plugins = (base, is_test_env) => [
     new IgnorePlugin({ resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/ }),
     new MiniCssExtractPlugin(cssConfig()),
     new CircularDependencyPlugin({ exclude: /node_modules/, failOnError: true }),
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({ typescript: { memoryLimit: 256 } }),
     ...(IS_RELEASE
         ? []
         : [

@@ -45,7 +45,7 @@ const SideNotes = ({ class_name, side_notes }: TSideNotes) => {
     );
 };
 
-const Content = memo(({ is_routed, items, selected }: TContent) => {
+const Content = memo(({ is_routed, items, selected }: TContent): React.ReactElement => {
     const selected_item = items.find(item => item.label === selected.label);
     const [side_notes, setSideNotes] = React.useState<React.ReactNode[] | null>(null);
 
@@ -57,14 +57,14 @@ const Content = memo(({ is_routed, items, selected }: TContent) => {
         return selected_item?.value as React.ElementType;
     }, [selected_item?.value]);
 
-    const memoized_routes = useMemo(() => {
+const memoized_routes = useMemo(() => {
         return items.map(({ value, component, path, icon }, idx) => {
-            const Component = (value as React.ElementType) || component;
+            const ElementComponent = ((value as React.ElementType) || component) as React.ComponentType<any>;
             return (
                 <Route
                     key={idx}
                     path={path}
-                    render={() => <Component component_icon={icon} setSideNotes={addToNotesQueue} />}
+                    render={() => <ElementComponent component_icon={icon} setSideNotes={addToNotesQueue} />}
                 />
             );
         });

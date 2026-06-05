@@ -47,9 +47,9 @@ const VideoFragment = ({ contract_type }: TVideoFragment) => {
             <DotLottieReact
                 autoplay
                 dotLottieRefCallback={
-                    ((dotLottie: EventTarget | null) => setDotLottie(dotLottie)) as React.ComponentProps<
-                        typeof DotLottieReact
-                    >['dotLottieRefCallback']
+                    ((dotLottie: any) => setDotLottie(dotLottie)) as React.ComponentProps<
+    typeof DotLottieReact
+>['dotLottieRefCallback']
                 }
                 src={lottie_src}
                 loop

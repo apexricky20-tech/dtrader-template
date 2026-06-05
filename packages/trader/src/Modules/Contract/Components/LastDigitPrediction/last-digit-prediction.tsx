@@ -115,7 +115,7 @@ const LastDigitPrediction = ({
     const latest_tick_quote_price =
         tick?.quote && latest_tick_pip_size ? tick.quote.toFixed(latest_tick_pip_size) : null;
     const latest_tick_digit = latest_tick_quote_price ? +(latest_tick_quote_price.split('').pop() || '') : null;
-    const position = tick ? getOffset()[latest_tick_digit ?? -1] : getOffset()[last_contract_digit.digit];
+    const position = tick ? getOffset()[latest_tick_digit ?? -1] : last_contract_digit ? getOffset()[(last_contract_digit as any).digit] : null;
     const latest_digit = !(is_won || is_lost)
         ? { digit: latest_tick_digit, spot: latest_tick_quote_price }
         : last_contract_digit;
@@ -137,7 +137,7 @@ const LastDigitPrediction = ({
                     is_min={digits ? digits[idx] === min : null}
                     stats={digits ? digits[idx] : null}
                     status={status}
-                    latest_digit={is_trade_page ? latest_digit : last_contract_digit}
+                    latest_digit={is_trade_page ? latest_digit : (last_contract_digit as any)}
                     value={idx}
                     onLastDigitSpot={onLastDigitSpot}
                     onSelect={isSelectableDigitType() ? handleSelect : null}

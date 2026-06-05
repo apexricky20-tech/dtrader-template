@@ -121,13 +121,12 @@ const TradeChart = observer(() => {
             current_language,
         });
 
-    React.useEffect(() => {
-        if ((is_accumulator || show_digits_stats) && ref.current?.hasPredictionIndicators()) {
+   React.useEffect(() => {
+        if ((is_accumulator || show_digits_stats) && (ref.current?.hasPredictionIndicators() as any)) {
             const cancelCallback = () => onChange({ target: { name: 'contract_type', value: prev_contract_type } });
             ref.current?.triggerPopup(cancelCallback);
         }
     }, [is_accumulator, onChange, prev_contract_type, show_digits_stats]);
-
     const barriers: ChartBarrierStore[] = main_barrier ? [main_barrier, ...extra_barriers] : extra_barriers;
 
     // max ticks to display for mobile view for tick chart

@@ -40,7 +40,7 @@ const Duration = observer(({ is_minimized }: TTradeParametersProps) => {
         validation_errors,
     } = useTraderStore();
     const { addSnackbar } = useSnackbar();
-    const { name_plural, name, name_singular } = getUnitMap()[duration_unit] ?? {};
+    const { name_plural, name, name_singular } = getUnitMap()[duration_unit] ?? ({} as any);
     const duration_unit_text = (duration === 1 ? name_singular : name_plural) ?? name;
     const [is_open, setOpen] = useState(false);
     const [saved_expiry_time, setSavedExpiryTime] = useState<string>('');
@@ -174,7 +174,7 @@ const Duration = observer(({ is_minimized }: TTradeParametersProps) => {
 
     useEffect(() => {
         if (has_error && !is_minimized) {
-            const error_obj = proposal_info[contract_type_object[0]] || validation_errors?.duration?.[0];
+            const error_obj = (proposal_info[contract_type_object[0]] || validation_errors?.duration?.[0]) as any;
             if (error_obj?.error_field === 'duration') {
                 addSnackbar({
                     message: mapErrorMessage(error_obj),

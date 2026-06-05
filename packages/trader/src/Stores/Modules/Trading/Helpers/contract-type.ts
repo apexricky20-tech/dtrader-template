@@ -137,7 +137,7 @@ export const ContractType = (() => {
                 config.has_spot = true; // Default to spot behavior since start_type was removed from API
                 config.durations = config.hide_duration ? undefined : buildDurationConfig(contract, config.durations);
                 config.trade_types = buildTradeTypesConfig(contract, config.trade_types);
-                config.barriers = buildBarriersConfig(contract, config.barriers);
+config.barriers = buildBarriersConfig(contract, config.barriers as any);
                 config.barrier_choices = contract.barrier_choices as TConfig['barrier_choices'];
                 config.growth_rate_range = contract.growth_rate_range as TConfig['growth_rate_range'];
                 config.multiplier_range = contract.multiplier_range as TConfig['multiplier_range'];
@@ -647,13 +647,13 @@ export const ContractType = (() => {
 
     const getBarriers = (contract_type: string, expiry_type: string, stored_barrier_value?: string) => {
         const barriers =
-            (getPropertyValue(available_contract_types, [contract_type, 'config', 'barriers']) as TBarriers) || {};
+(getPropertyValue(available_contract_types, [contract_type, 'config', 'barriers']) as TBarriers) || ({} as any);
         const barrier_values = barriers[expiry_type] || {};
         const barrier_1 = barrier_values.barrier || barrier_values.high_barrier || '';
         const barrier_2 = barrier_values.low_barrier || '';
         return {
-            barrier_count: barriers.count || 0,
-            barrier_1: stored_barrier_value || barrier_1.toString(),
+    barrier_count: (barriers as any).count || 0,
+    barrier_1: stored_barrier_value || barrier_1.toString(),
             barrier_2: barrier_2.toString(),
         };
     };

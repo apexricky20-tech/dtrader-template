@@ -1,6 +1,6 @@
 import React, { createContext, PropsWithChildren, useCallback, useContext, useEffect, useRef, useState } from 'react';
 
-// @ts-expect-error `@deriv/deriv-api` is not in TypeScript, Hence we ignore the TS error.
+// @ts-ignore `@deriv/deriv-api` is not in TypeScript, Hence we ignore the TS error.
 import DerivAPIBasic from '@deriv/deriv-api/dist/DerivAPIBasic';
 import { getApiV4BaseUrl, getAccountType, useWS } from '@deriv/shared';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';

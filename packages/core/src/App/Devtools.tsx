@@ -86,7 +86,7 @@ const FeatureFlagsSection = observer(() => {
                         classNameLabel={'devtools__checkbox-label'}
                         label={flag_name}
                         value={feature_flags.data?.[flag_name]}
-                        // @ts-expect-error Checkbox onChange type is not correct and need to be fixed.
+                        // @ts-ignore Checkbox onChange type is not correct and need to be fixed.
                         onChange={e => feature_flags.update(old => ({ ...old, [flag_name]: e.target.checked }))}
                     />
                 );

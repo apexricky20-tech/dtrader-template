@@ -20,7 +20,8 @@
         "useDefineForClassFields": true,
         "outDir": "./dist",
         "baseUrl": "./",
-        "types": ["jest", "@testing-library/jest-dom", "node"]
+        "types": ["jest", "@testing-library/jest-dom", "node"],
+        "ignoreDeprecations": "6.0"
     },
     "include": [
       "src",

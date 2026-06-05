@@ -84,9 +84,9 @@ export default class Subscription {
             } as any
         );
 
-        // @ts-expect-error due to incorrect type defintion, to be fixed later
+        // @ts-ignore due to incorrect type defintion, to be fixed later
         this.reqId = data.req_id;
-        // @ts-expect-error due to incorrect type definition, to be fixed later
+        // @ts-ignore due to incorrect type definition, to be fixed later
         this.subscriptionId = data.subscription.id;
         this.lastData = data;
 

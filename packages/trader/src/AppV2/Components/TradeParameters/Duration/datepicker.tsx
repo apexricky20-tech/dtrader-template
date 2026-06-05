@@ -25,7 +25,7 @@ const DaysDatepicker = ({
     const isMounted = useIsMounted();
 
     const onChangeCalendarMonth = React.useCallback(
-        async (e = toMoment().format('YYYY-MM-DD')) => {
+        async (e: any = toMoment().format('YYYY-MM-DD')) => {
             const new_market_events: TMarketEvent[] = [];
             let new_disabled_days: number[] = [];
 
@@ -41,7 +41,7 @@ const DaysDatepicker = ({
                     .filter(index => index !== -1);
             }
 
-            events?.forEach(evt => {
+            events?.forEach((evt: { dates: string; descrip: string }) => {
                 const dates = evt.dates.split(', '); // convert dates str into array
                 new_market_events.push({
                     dates,
@@ -74,8 +74,8 @@ const DaysDatepicker = ({
                 maxDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))}
                 view='month'
                 value={end_date}
-                tileDisabled={getDisabledDays}
-                onChange={date => {
+                tileDisabled={getDisabledDays as any}
+                onChange={(date: any) => {
                     if (date && date instanceof Date) {
                         setEndDate(date);
                     }

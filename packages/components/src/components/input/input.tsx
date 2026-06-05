@@ -139,7 +139,7 @@ const Input = React.forwardRef<HTMLInputElement & HTMLTextAreaElement, TInputPro
                             <textarea
                                 ref={ref}
                                 data-testid={data_testId}
-                                {...(props as React.ComponentProps<'textarea'>)}
+{...(props as unknown as React.ComponentProps<'textarea'>)}
                                 className={classNames('dc-input__field dc-input__textarea', {
                                     'dc-input__field--placeholder-visible': !label && placeholder,
                                 })}

@@ -88,9 +88,9 @@ describe('isSupportedImageFormat()', () => {
     });
 
     it('should handle edge cases', () => {
-        // @ts-expect-error - test case to simulate passing null
+        // @ts-ignore - test case to simulate passing null
         expect(isSupportedImageFormat(null)).toBe(false);
-        // @ts-expect-error - test case to simulate passing undefined
+        // @ts-ignore - test case to simulate passing undefined
         expect(isSupportedImageFormat(undefined)).toBe(false);
     });
 });

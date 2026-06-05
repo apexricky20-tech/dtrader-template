@@ -20,7 +20,7 @@ const usePaginatedFetch = <T extends TSocketPaginateableEndpointNames>(
     const limit: number = payload?.payload?.limit || 10;
     const [offset, setOffset] = useState<number>(payload?.payload?.offset || 0);
 
-    // @ts-expect-error It's safe to ignore the TS error here since the
+    // @ts-ignore It's safe to ignore the TS error here since the
     // exact type of the payload is not determined at this point.
     const { remove, ...rest } = useQuery(name, {
         payload: { ...payload, offset, limit },

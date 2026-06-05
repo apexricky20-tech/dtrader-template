@@ -19,7 +19,7 @@ export default class FeatureFlagsStore extends BaseStore<{ [k in keyof typeof FL
                     const data = FLAGS;
 
                     Object.keys(FLAGS).forEach(flag => {
-                        // @ts-expect-error flag key is always present in the object, Hence can ignore the TS error.
+                        // @ts-ignore flag key is always present in the object, Hence can ignore the TS error.
                         if (old[flag] !== undefined) data[flag] = old[flag];
                     });
 

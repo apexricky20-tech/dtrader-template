@@ -13,7 +13,7 @@ describe('useFeatureFlags', () => {
 
         const { result } = renderHook(() => useFeatureFlags(), { wrapper });
 
-        // @ts-expect-error Using a test flag key for testing purposes.
+        // @ts-ignore Using a test flag key for testing purposes.
         expect(result.current.is_test_flag_enabled).toBe(false);
     });
 
@@ -26,7 +26,7 @@ describe('useFeatureFlags', () => {
 
         const { result } = renderHook(() => useFeatureFlags(), { wrapper });
 
-        // @ts-expect-error Using a test flag key for testing purposes.
+        // @ts-ignore Using a test flag key for testing purposes.
         expect(result.current.is_test_flag_enabled).toBe(true);
     });
 });

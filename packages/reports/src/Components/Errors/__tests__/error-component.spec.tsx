@@ -78,7 +78,7 @@ describe('ErrorComponent', () => {
     });
 
     it('should show error modal with custom message', () => {
-        // @ts-expect-error type mismatch
+        // @ts-ignore type mismatch
         jest.spyOn(React, 'useState').mockImplementationOnce(() => React.useState<boolean>(true));
         render(
             <BrowserRouter>
@@ -89,7 +89,7 @@ describe('ErrorComponent', () => {
     });
 
     it('should show unhandled error modal', async () => {
-        // @ts-expect-error type mismatch
+        // @ts-ignore type mismatch
         jest.spyOn(React, 'useState').mockImplementationOnce(() => React.useState<boolean>(true));
         render(
             <BrowserRouter>

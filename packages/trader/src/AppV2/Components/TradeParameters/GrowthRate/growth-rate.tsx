@@ -37,7 +37,7 @@ const GrowthRate = observer(({ is_minimized }: TTradeParametersProps) => {
     const [is_open, setIsOpen] = React.useState(false);
     const is_mobile = isMobile();
     const is_small_screen = isSmallScreen();
-    const info = proposal_info?.[CONTRACT_TYPES.ACCUMULATOR] || {};
+    const info = proposal_info?.[CONTRACT_TYPES.ACCUMULATOR] || ({} as any);
     const is_proposal_data_available =
         is_trade_enabled && !isEmptyObject(proposal_info) && !!info.id && is_purchase_enabled;
     const classname = clsx('trade-params__option', is_minimized && 'trade-params__option--minimized');
@@ -92,6 +92,7 @@ const GrowthRate = observer(({ is_minimized }: TTradeParametersProps) => {
                 <Skeleton />
             </div>
         );
+        
     // Render desktop version with InputPopover for non-mobile devices
     if (!is_mobile) {
         return <GrowthRateDesktop is_minimized={is_minimized} />;

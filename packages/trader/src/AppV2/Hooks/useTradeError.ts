@@ -11,9 +11,8 @@ const useTradeError = ({ error_fields }: { error_fields: TErrorFields[] }) => {
     const { contract_type, proposal_info, validation_errors, trade_type_tab, trade_types } = useTraderStore();
     const contract_types = getDisplayedContractTypes(trade_types, contract_type, trade_type_tab);
 
-    const proposal_error = proposal_info?.[contract_types[0]] ?? {};
+    const proposal_error = proposal_info?.[contract_types[0]] ?? ({} as any);
     const { has_error: proposal_has_error, error_field: proposal_error_field } = proposal_error;
-
     const checkErrorForField = (field: TErrorFields) => {
         const validation_has_error = validation_errors?.[field]?.length > 0;
         const is_error_matching_field = (proposal_has_error && proposal_error_field === field) || validation_has_error;

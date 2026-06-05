@@ -26,7 +26,7 @@ const getInvalidDigitForContractType = (trade_type_tab: string): number | null =
 
 const LastDigitPrediction = observer(({ is_minimized }: TTradeParametersProps) => {
     const store = useTraderStore();
-    const { digit_stats = [], is_market_closed, last_digit, onChange, trade_type_tab } = store;
+    const { digit_stats = [] as any, is_market_closed, last_digit, onChange, trade_type_tab } = store;
     const [is_open, setIsOpen] = React.useState(false);
     const [selected_digit, setSelectedDigit] = React.useState(last_digit);
     const [previous_trade_type_tab, setPreviousTradeTypeTab] = React.useState(trade_type_tab);
@@ -62,7 +62,7 @@ const LastDigitPrediction = observer(({ is_minimized }: TTradeParametersProps) =
 
             // Auto-select a valid digit (the closest valid one)
             const new_digit = invalid_digit === 9 ? 8 : 1;
-            onChange({ target: { name: 'last_digit', value: new_digit } });
+            onChange({ target: { name: 'last_digit', value: new_digit } } as any);
         }
 
         if (is_trade_type_changed) {
@@ -75,7 +75,7 @@ const LastDigitPrediction = observer(({ is_minimized }: TTradeParametersProps) =
         if (digit === invalid_digit) {
             return;
         }
-        onChange({ target: { name: 'last_digit', value: digit } });
+        onChange({ target: { name: 'last_digit', value: digit } } as any);
     };
     const onSaveButtonClick = () => {
         if (last_digit !== selected_digit) handleLastDigitChange(selected_digit);

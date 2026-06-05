@@ -59,18 +59,18 @@ function useEventListener<
             listener = event => savedHandler.current(event);
             // Define the listening target
 
-            if (!targetElement?.addEventListener) return;
+            if (!(targetElement as any)?.addEventListener) return;
 
             // Create event listener that calls handler function stored in ref
 
-            targetElement.addEventListener(eventName, listener, options);
+            if (targetElement && typeof (targetElement as any).addEventListener === "function") { (targetElement as any).addEventListener(eventName, listener, options); }
         };
 
         setListener();
 
         // Remove event listener on cleanup
         return () => {
-            targetElement?.removeEventListener(eventName, listener, options);
+           (targetElement as any)?.removeEventListener(eventName, listener, options);
         };
     }, [eventName, element, options]);
 }

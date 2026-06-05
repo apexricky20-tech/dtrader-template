@@ -143,7 +143,7 @@ const DataList = React.memo(
 
             const getContent = ({ measure }: GetContentType = {}) => (
                 <DataListRow
-                    //@ts-expect-error needs refactor
+                    // @ts-ignore needs refactor
                     action_desc={action_desc}
                     destination_link={destination_link}
                     is_new_row={!items_transition_map_ref.current[row_key]}
