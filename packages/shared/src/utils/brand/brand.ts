@@ -165,7 +165,8 @@ export const getAuthBaseUrl = (): string => {
 };
 
 export const getOAuthClientId = (): string => {
-    const client_id = process.env.OAUTH_CLIENT_ID;
+    // Explicitly casting window/process fields to avoid frontend TS compilation type errors
+    const client_id = (window as any).process?.env?.OAUTH_CLIENT_ID || (process as any)?.env?.OAUTH_CLIENT_ID;
     if (!client_id)
         throw new Error(
             'OAUTH_CLIENT_ID is not set. Add it to your .env file for local dev or GitHub Environment secrets for CI.'
