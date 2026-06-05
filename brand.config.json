@@ -1,33 +1,33 @@
 {
-    "brand_name": "Trading Platform",
+    "brand_name": "TradeXpro",
     "brand_logo": "brand/platform-logo.svg",
     "brand_logo_dark": "brand/platform-logo.svg",
-    "brand_domain": "deriv.com",
+    "brand_domain": "tradexpro.co.ke",
     "brand_hostname": {
-        "staging": "staging.dtrader-template.pages.dev",
-        "production": "dtrader-template.pages.dev"
+        "staging": "staging.tradexpro.pages.dev",
+        "production": "tradexpro.co.ke"
     },
     "platform": {
-        "name": "Trading Platform",
-        "description": "A whole new trading experience on a powerful yet easy to use platform.",
+        "name": "TradeXpro",
+        "description": "A powerful yet easy to use derivatives trading platform.",
         "logo": "brand/platform-logo.svg",
-        "home_url": "https://home.deriv.com/dashboard",
-        "help_centre_url": "https://trade.deriv.com/help-centre"
+        "home_url": "https://tradexpro.co.ke/dashboard",
+        "help_centre_url": "https://tradexpro.co.ke/help-centre"
     },
     "signup_url": {
-        "production": "https://home.deriv.com/dashboard/signup",
-        "staging": "https://staging-home.deriv.com/dashboard/signup"
+        "production": "https://tradexpro.co.ke/dashboard/signup",
+        "staging": "https://staging.tradexpro.pages.dev/dashboard/signup"
     },
     "deposit_url": {
-        "staging": "https://staging.dtrader-template.pages.dev/transfer",
-        "production": "https://dtrader-template.pages.dev/transfer"
+        "staging": "https://staging.tradexpro.pages.dev/transfer",
+        "production": "https://tradexpro.co.ke/transfer"
     },
     "auth": {
         "staging": "https://staging-auth.deriv.com",
         "production": "https://auth.deriv.com",
         "oauth_scopes": ["trade", "account_manage"],
-        "oauth_redirect_uri_staging": "https://staging.dtrader-template.pages.dev",
-        "oauth_redirect_uri_production": "https://dtrader-template.pages.dev",
+        "oauth_redirect_uri_staging": "https://staging.tradexpro.pages.dev",
+        "oauth_redirect_uri_production": "https://tradexpro.co.ke",
         "oauth_app_id": ""
     },
     "derivws": {
@@ -43,8 +43,8 @@
         "production": "api.deriv.com"
     },
     "app_id": {
-        "staging": 16929,
-        "production": 16929
+        "staging": 36544,
+        "production": 36544
     },
     "colors": {
         "primary": "#118e1c",
