@@ -22,7 +22,13 @@ export const isProduction = (): boolean => {
     if (typeof window === 'undefined') return false;
     const hostname = window.location.hostname;
     const production_hostname = config_data.brand_hostname.production;
-    return hostname === production_hostname;
+    
+    // Returns true if running on your domain or your core Cloudflare production pages URL
+    return (
+        hostname === production_hostname || 
+        hostname === 'tradexpro.pages.dev' ||
+        hostname.endsWith('.derivatives-trader.pages.dev')
+    );
 };
 
 export const getBrandHostname = () => {
