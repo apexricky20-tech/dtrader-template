@@ -22,12 +22,12 @@ export const isProduction = (): boolean => {
     if (typeof window === 'undefined') return false;
     const hostname = window.location.hostname;
     const production_hostname = config_data.brand_hostname.production;
-    
+
     // Returns true if running on your domain or your core Cloudflare production pages URL
     return (
-        hostname === production_hostname || 
+        hostname === production_hostname ||
         hostname === 'tradexpro.pages.dev' ||
-        hostname.endsWith('.derivatives-trader.pages.dev')
+        hostname.endsWith('.tradexpro.pages.dev')
     );
 };
 
@@ -137,7 +137,7 @@ export const getTrustedDomainName = (): string => {
  * attacks where an attacker-controlled copy of the app injects a redirect
  * back to their domain after authentication.
  */
-const CLOUDFLARE_PAGES_PATTERN = /^[a-zA-Z0-9-]+\.derivatives-trader\.pages\.dev$/;
+const CLOUDFLARE_PAGES_PATTERN = /^[a-zA-Z0-9-]+\.tradexpro\.pages\.dev$/;
 export const getRedirectHostname = (): string => {
     if (typeof window === 'undefined') return '';
     const hostname = window.location.hostname;
